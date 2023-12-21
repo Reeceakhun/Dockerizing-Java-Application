@@ -1,4 +1,8 @@
 FROM openjdk:11 AS base_image
+
+LABEL "project"="Dockerizing-Java-Application"
+LABEL "Author"="Reece"
+
 RUN apt update && apt install maven -y
 WORKDIR /code
 RUN git clone https://github.com/Reeceakhun/Dockerizing-Java-Application.git

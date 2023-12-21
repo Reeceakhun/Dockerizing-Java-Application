@@ -11,7 +11,7 @@ services:
       - vprodbdata:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=vprodbpass
-      - MSQL_DATABASE=accounts
+
 
   vprocache01:
     image: memcached
@@ -25,7 +25,7 @@ services:
       - "15672:15672"
     environment:
       - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASSWORD=guest
+      - RABBITMQ_DEFAULT_PASS=guest
 
   vproapp:
     build:

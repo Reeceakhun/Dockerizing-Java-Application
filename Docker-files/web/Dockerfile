@@ -1,7 +1,7 @@
 FROM nginx
 
-LABEL “Project”=“Dockerizing-Java-Application”
-LABEL “Author”=“Reece”
+LABEL "project"="Dockerizing-Java-Application"
+LABEL "Author"="Reece"
 
 
 RUN rm -rf /etc/nginx/conf.d/default.conf
