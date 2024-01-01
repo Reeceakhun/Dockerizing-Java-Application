@@ -1,21 +1,11 @@
 Jenkinsfile (Declarative Pipeline)
-
+/* Requires the Docker Pipeline plugin */
 pipeline {
-    agent any
+    agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
     stages {
-        stage('Fetch code') {
+        stage('build') {
             steps {
-                git branch: 'jenkins-p-build', url: 'https://github.com/Reeceakhun/Dockerizing-Java-Application'
-            }
-        }
-        stage ('Build'){
-            steps {
-                sh 'mvn install'
-            }
-        }
-        stage('Test'){
-            steps {
-                sh 'mvn test'
+                sh 'mvn --version'
             }
         }
     }
