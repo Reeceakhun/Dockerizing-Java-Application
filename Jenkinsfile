@@ -2,10 +2,20 @@ Jenkinsfile (Declarative Pipeline)
 
 pipeline {
     agent any
+    tools {
+        maven "MAVEN3"
+        jdk "OracleJDK8"
+    }
     stages {
-        stage('Fetch code') {
+        stage ('Build') {
             steps {
-                git branch: 'jenkins-p-build', url: 'https://github.com/Reeceakhun/Dockerizing-Java-Application.git'
+                sh 'mvn -s dettings.xml -SskipTests install'
+            }
+        }
+
+        stage ('test') {
+            steps {
+                sh 'mvn test'
             }
         }
     }
