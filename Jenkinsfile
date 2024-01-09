@@ -1,5 +1,3 @@
-Jenkinsfile (Declarative Pipeline)
-
 pipeline {
     agent any
     tools {
@@ -8,7 +6,7 @@ pipeline {
     }
     environment {
         SNAP_REPO = 'vprofile-snapshot'
-        NEXUS_USER = 'reece'
+        NEXUS_USER = 'admin'
         NEXUS_PASS = 'reece'
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vpro-maven-central'
