@@ -20,12 +20,26 @@ pipeline {
             steps {
                 sh 'mvn -s settings.xml -DskipTests install'
             }
+            post {
+                success {
+                    echo "Now Archiving."
+                    archiveArtifacts artifacts: '**/*.war'
+                }
+            }
         }
-
-        stage ('test') {
+# unit testing
+        stage ('Test'){
             steps {
                 sh 'mvn test'
             }
         }
+ # using checkstyle to check issues with code      
+        stage ('Checkstyle Analysis'){
+            steps {
+                sh 'mvn checkstyle:checkstyle'
+            }
+        }
+
+        
     }
 }
