@@ -27,13 +27,13 @@ pipeline {
                 }
             }
         }
-# unit testing
+
         stage ('Test'){
             steps {
                 sh 'mvn test'
             }
         }
- # using checkstyle to check issues with code      
+     
         stage ('Checkstyle Analysis'){
             steps {
                 sh 'mvn checkstyle:checkstyle'
